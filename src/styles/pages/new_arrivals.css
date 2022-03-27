@@ -1,0 +1,60 @@
+/*=============== NEW ARRIVALS ===============*/
+
+.new__arrivals__wrapper {
+  max-width: 100rem;
+  width: 100vw;
+  margin: auto !important;
+}
+
+.new__arrivals__wrapper > * {
+  background-color: rgba(var(--color-rgb-grey), 0.4);
+}
+
+.new__arrival {
+  max-width: 60rem;
+  min-width: 40rem;
+  max-height: 35rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'image title' 'image info';
+}
+
+.new__arrival__info {
+  grid-area: info;
+}
+
+.new__arrival__title {
+  grid-area: title;
+}
+
+.new__arrival__image {
+  grid-area: image;
+}
+
+[class^='col-']:not(:last-child) {
+  margin-right: 0rem !important;
+}
+
+@media (max-width: 900px) {
+  .new__arrivals__wrapper {
+    flex-direction: column !important;
+  }
+
+  .new__arrivals__wrapper:not(:last-child()) {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .new__arrival {
+    max-width: 30rem;
+    width: 80%;
+    min-width: 30rem;
+    max-height: max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 20rem auto;
+    grid-template-areas: 'title' 'image' 'info';
+    gap: 2rem;
+    padding: 2rem;
+  }
+}

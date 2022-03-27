@@ -1,0 +1,106 @@
+.product__detail__card {
+  max-width: 60rem;
+  width: 100vw;
+  height: max-content;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'img info' 'img btns';
+  border: 1px solid rgb(var(--color-rgb-grey), 0.1);
+  gap: 2;
+}
+
+.product__detail__card:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.detail__card__image {
+  grid-area: img;
+  background-color: rgba(var(--color-rgb-grey), 0.2);
+}
+
+.original__cost {
+  /* text-decoration: line-through; */
+  position: relative;
+}
+
+.original__cost::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey);
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quantity {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  background-color: transparent;
+}
+
+.quantity::-webkit-inner-spin-button,
+.quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.quantity-input {
+  border: 2px solid rgba(var(--color-rgb-light-grey-1), 0.4);
+  display: inline-flex;
+}
+
+.quantity-input button {
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin: 0;
+}
+
+.quantity-input button:after {
+  display: inline-block;
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 800;
+  content: '-';
+  transform: translate(-50%, -50%);
+  color: var(--title-color);
+}
+.quantity-input button.plus:after {
+  content: '+';
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+
+.quantity-input input[type='number'] {
+  max-width: 5rem;
+  padding: 0.5rem;
+  border: solid rgba(var(--color-rgb-light-grey-1), 0.4);
+  border-width: 0 2px;
+  /* font-size: 1.6rem; */
+  height: 3rem;
+  /* font-weight: 600; */
+  /* text-align: center; */
+  color: var(--title-color);
+}
+
+@media (max-width: 630px) {
+  .product__detail__card {
+    width: 34rem;
+    max-width: 100vw;
+    height: max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 'img' 'info' 'btns';
+    gap: 0;
+  }
+
+  .detail__card__info {
+    margin-bottom: 2rem;
+  }
+}

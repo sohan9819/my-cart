@@ -1,27 +1,54 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
  * */
 
+// export const categories = [
+//   {
+//     _id: uuid(),
+//     categoryName: "fiction",
+//     description:
+//       "literature in the form of prose, especially novels, that describes imaginary events and people",
+//   },
+//   {
+//     _id: uuid(),
+//     categoryName: "non-fiction",
+//     description:
+//       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+//   },
+//   {
+//     _id: uuid(),
+//     categoryName: "horror",
+//     description:
+//       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+//   },
+// ];
+
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: 'Electronics',
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      'Id excepteur reprehenderit pariatur proident aliquip est ipsum labore sunt proident quis. Deserunt deserunt non ea ex adipisicing minim. Aliqua sunt amet sit ullamco ad irure proident.',
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: 'Jewelery',
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      'Id excepteur reprehenderit pariatur proident aliquip est ipsum labore sunt proident quis. Deserunt deserunt non ea ex adipisicing minim. Aliqua sunt amet sit ullamco ad irure proident.',
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Men's Clothing",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      'Id excepteur reprehenderit pariatur proident aliquip est ipsum labore sunt proident quis. Deserunt deserunt non ea ex adipisicing minim. Aliqua sunt amet sit ullamco ad irure proident.',
+  },
+  {
+    _id: uuid(),
+    categoryName: "Women's Clothing",
+    description:
+      'Id excepteur reprehenderit pariatur proident aliquip est ipsum labore sunt proident quis. Deserunt deserunt non ea ex adipisicing minim. Aliqua sunt amet sit ullamco ad irure proident.',
   },
 ];
