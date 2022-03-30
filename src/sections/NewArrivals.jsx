@@ -3,12 +3,12 @@ const NewArrivals = () => {
     <div className='new__arrivals__wrapper py-4 flex justify-center items-center flex-row gap-4'>
       <div className='col-1-0f-2 p-4 text-center new__arrival grid gap-4 box-shadow'>
         <img
-          src='https://picsum.photos/300/200'
+          src='https://picsum.photos/200/300'
           alt='new arrivals'
-          //     srcset='
-          //   https://picsum.photos/200/300 1x,
-          //   https://picsum.photos/300/200 2x
-          // '
+          srcSet='
+            https://picsum.photos/200/300 1x,
+            https://picsum.photos/200/300 2x
+          '
           className='new__arrival__image rounded-s h-full w-full'
         />
         <h3 className='new__arrival__title uppercase h3 text-left semibold color-red h3'>
@@ -24,12 +24,12 @@ const NewArrivals = () => {
       </div>
       <div className='col-1-0f-2 p-4 text-center new__arrival grid gap-4 box-shadow'>
         <img
-          src='https://picsum.photos/300/200'
+          src='https://picsum.photos/200/300'
           alt='new arrivals'
-          //     srcset='
-          //   https://picsum.photos/200/300 1x,
-          //   https://picsum.photos/300/200 2x
-          // '
+          srcSet='
+            https://picsum.photos/200/300 1x,
+            https://picsum.photos/200/300 2x
+          '
           className='new__arrival__image rounded-s h-full w-full'
         />
         <h3 className='new__arrival__title uppercase h3 text-left semibold color-red'>

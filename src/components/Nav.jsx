@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useThemeContext } from '../context/ThemeContext';
+import { useState } from 'react';
 
 const Nav = () => {
   const { theme, setTheme } = useThemeContext();
+
+  const [navState, setNavState] = useState(false);
 
   const themeHandler = (val, icon) => {
     switch (val) {
@@ -28,13 +31,27 @@ const Nav = () => {
     console.log(theme);
   };
 
+  const navHandler = (action) => {
+    switch (action) {
+      case 'open':
+        setNavState(true);
+        break;
+      case 'close':
+        setNavState(false);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <nav className='nav container mx-auto px-1 flex justify-between items-center'>
       <Link to='/' className='nav__logo h3 flex items-center'>
         <i className='bx bx-cart nav__logo-icon h2'></i> MY Cart
       </Link>
 
-      <div className='nav__menu' id='nav-menu'>
+      <div className={`nav__menu ${navState ? 'show-menu' : ''}`} id='nav-menu'>
+        {/* <div className={navToggle} id='nav-menu'> */}
         <ul className='nav__list'>
           <li>
             <i
@@ -58,7 +75,13 @@ const Nav = () => {
           </li>
         </ul>
 
-        <div className='nav__close h2' id='nav-close'>
+        <div
+          onClick={() => {
+            navHandler('close');
+          }}
+          className='nav__close h2'
+          id='nav-close'
+        >
           <i className='bx bx-x'></i>
         </div>
       </div>
@@ -83,7 +106,13 @@ const Nav = () => {
             className='bx bx-shopping-bag badge__basic-content-s'
           ></Link>
         </div>
-        <div className='nav__toggle h3' id='nav-toggle'>
+        <div
+          onClick={() => {
+            navHandler('open');
+          }}
+          className='nav__toggle h3'
+          id='nav-toggle'
+        >
           <i className='bx bx-grid-alt'></i>
         </div>
       </div>

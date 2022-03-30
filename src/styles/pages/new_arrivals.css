@@ -29,6 +29,7 @@
 
 .new__arrival__image {
   grid-area: image;
+  object-fit: contain;
 }
 
 [class^='col-']:not(:last-child) {

@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
+import hero from '../assets/images/hero.png';
 
 const HomeIntro = () => {
   return (
     <section className='home mb-2 container mx-auto' id='home'>
       <div className='home__container container grid relative gap-2'>
         <div className='home__img-bg'>
-          <img
-            src='./assets/images/pngwing.com.png'
-            alt=''
-            className='home__img'
-          />
+          <img src={hero} alt='' className='home__img' />
         </div>
 
         <div className='home__social flex gap-2 absolute'>

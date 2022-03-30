@@ -9,7 +9,7 @@ const ProductCard = () => {
       </div>
       <div className='card__content-box'>
         <img
-          src='https://source.unsplash.com/random/500x700'
+          src='https://source.unsplash.com/random/500x550'
           alt='Card Image'
           className='card__content-box--image'
         ></img>

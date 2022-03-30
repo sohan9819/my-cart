@@ -33,4 +33,5 @@
 
 .card__content-box--image {
   height: 26rem !important;
+  object-fit: contain;
 }

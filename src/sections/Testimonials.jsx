@@ -1,3 +1,10 @@
+import testimonial from '../assets/images/testimonial.jpg';
+import testimony_1 from '../assets/images/testimonial1.jpg';
+import testimony_2 from '../assets/images/testimonial2.jpg';
+import testimony_3 from '../assets/images/testimonial3.jpg';
+
+import Swiper from 'swiper';
+
 const Testimonials = () => {
   return (
     <section className='testimonial section  p-1'>
@@ -5,7 +12,7 @@ const Testimonials = () => {
         <div className='testimonial__images m-auto'>
           <div className='testimonial__square'></div>
           <img
-            src='https://cdn.vectorstock.com/i/preview-2x/12/33/testimonial-icon-simple-element-vector-27121233.jpg%202x,%20https://cdn.vectorstock.com/i/preview-1x/12/33/testimonial-icon-simple-element-vector-27121233.jpg'
+            src={testimonial}
             alt=''
             className='testimonial__img box-shadow'
           />
@@ -29,7 +36,7 @@ const Testimonials = () => {
 
               <div className='testimonial__perfil'>
                 <img
-                  src='assets/images/testimonial1.jpg'
+                  src={testimony_1}
                   alt=''
                   className='testimonial__perfil-img'
                 />
@@ -59,7 +66,7 @@ const Testimonials = () => {
 
               <div className='testimonial__perfil'>
                 <img
-                  src='assets/images/testimonial2.jpg'
+                  src={testimony_2}
                   alt=''
                   className='testimonial__perfil-img'
                 />
@@ -91,7 +98,7 @@ const Testimonials = () => {
 
               <div className='testimonial__perfil'>
                 <img
-                  src='assets/images/testimonial3.jpg'
+                  src={testimony_3}
                   alt=''
                   className='testimonial__perfil-img'
                 />
