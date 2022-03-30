@@ -1,0 +1,21 @@
+.my__cart {
+  grid-template-columns: auto auto;
+  grid-template-areas: 'product_list bill';
+}
+
+.cart__products {
+  grid-area: product_list;
+}
+
+.cart__bill__card {
+  grid-area: bill;
+}
+
+@media (max-width: 900px) {
+  .my__cart {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 'bill' 'product_list';
+    gap: 2rem;
+  }
+}

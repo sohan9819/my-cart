@@ -1,0 +1,79 @@
+.filters {
+  height: 90vh;
+  min-height: max-content;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    'title clear'
+    'input__range input__range'
+    'category category'
+    'rating rating'
+    'sort__by sort__by';
+  gap: 2rem;
+}
+
+.filter__input__range {
+  grid-area: input__range;
+}
+
+.filter__category {
+  grid-area: category;
+}
+
+.filter__rating {
+  grid-area: rating;
+}
+
+.filter__sort__by {
+  grid-area: sort__by;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  width: 90%;
+  height: 1rem;
+  background: #4d4c53;
+  outline: none;
+}
+
+#tickmarks {
+  width: 90%;
+}
+
+/* slider handle */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-alpha);
+  cursor: pointer;
+  border-radius: 50%;
+  outline: 15px solid rgba(234, 52, 111, 0.2);
+}
+
+input[type='range']::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none; /* firefox needs this */
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-alpha);
+  cursor: pointer;
+  border-radius: 50%;
+  outline: 15px solid rgba(var(--color-rgb-alpha), 0.2);
+}
+
+/* progress (before knob) within Firefox */
+input[type='range']::-moz-range-progress {
+  background: var(--color-alpha);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 1rem;
+}
+
+/* input[type='checkbox']:checked {
+  filter: invert(89.4%) hue-rotate(560deg) brightness(107.8%);
+} */

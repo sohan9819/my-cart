@@ -1,0 +1,34 @@
+.cart__bill__card {
+  /* background-color: rgb(195, 201, 199); */
+  min-width: 20rem;
+  max-width: 35rem;
+  height: max-content;
+  grid-template-rows: auto auto auto auto auto;
+  border: 1px solid rgb(var(--color-rgb-grey), 0.1);
+}
+
+.product__charges {
+  grid-template-columns: auto auto;
+  grid-template-columns: 'charge_names price';
+  border-top: 1px solid rgba(var(--color-rgb-grey), 0.4);
+}
+
+.charge__names {
+  text-align: left;
+}
+
+.total {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(var(--color-rgb-grey), 0.4);
+  border-left: none;
+  border-right: none;
+}
+
+@media (max-width: 630px) {
+  .cart__bill__card {
+    width: 35rem;
+    min-width: 20rem;
+    max-width: 100vw;
+    height: max-content;
+  }
+}
