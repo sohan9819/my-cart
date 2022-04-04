@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom';
-import { useThemeContext } from '../context/ThemeContext';
-import { useState } from 'react';
+import { useThemeContext } from '../context/context';
+import { useEffect, useRef, useState } from 'react';
+
+import { useCartContext } from '../context/context';
 
 const Nav = () => {
   const { theme, setTheme } = useThemeContext();
 
   const [navState, setNavState] = useState(false);
+
+  const themeIcon = useRef(null);
+
+  const cartBadge = useRef(null);
+
+  const { cartItems } = useCartContext();
 
   const themeHandler = (val, icon) => {
     switch (val) {
@@ -25,10 +33,22 @@ const Nav = () => {
     }
   };
 
+  useEffect(() => {
+    themeHandler(theme, themeIcon.current);
+  });
+
+  useEffect(() => {
+    if (cartItems.length == 0) {
+      cartBadge.current.style.display = 'none';
+    } else {
+      cartBadge.current.style.display = '';
+    }
+  }, [cartItems]);
+
   const onClickHandler = (evt) => {
     setTheme((prev) => !prev);
     themeHandler(theme, evt.target);
-    console.log(theme);
+    // console.log(theme);
   };
 
   const navHandler = (action) => {
@@ -73,6 +93,15 @@ const Nav = () => {
               SignIN
             </Link>
           </li>
+
+          <li>
+            <Link
+              to='/products'
+              className='h4 bg-orange color-dark-grey-1 p-1 '
+            >
+              Shop Now !
+            </Link>
+          </li>
         </ul>
 
         <div
@@ -89,22 +118,23 @@ const Nav = () => {
       <div className='nav__btns flex gap-2'>
         {/* <!-- Theme change button --> */}
         <button
+          ref={themeIcon}
           onClick={onClickHandler}
           className='bx bx-moon change-theme h3'
           id='theme-button'
           style={{ border: 'none', background: 'none' }}
         ></button>
         <div className='nav__shop h3' id='cart-heart'>
-          <Link
-            to='/wishlist'
-            className='bx bx-heart badge__basic-content-s'
-          ></Link>
+          <Link to='/wishlist' className='bx bx-heart badge__basic-wrapper'>
+            <span className='badge__basic-content'>0</span>
+          </Link>
         </div>
         <div className='nav__shop h3' id='cart-shop'>
-          <Link
-            to='/cart'
-            className='bx bx-shopping-bag badge__basic-content-s'
-          ></Link>
+          <Link to='/cart' className='bx bx-shopping-bag badge__basic-wrapper'>
+            <span ref={cartBadge} className='badge__basic-content'>
+              {cartItems.length}
+            </span>
+          </Link>
         </div>
         <div
           onClick={() => {

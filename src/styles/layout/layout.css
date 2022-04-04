@@ -1,4 +1,8 @@
 /*=============== REUSABLE CSS CLASSES ===============*/
+.main {
+  min-height: 50vh;
+}
+
 .container {
   max-width: 105rem;
   /* margin-left: var(--mb-1-5);

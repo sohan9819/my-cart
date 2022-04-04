@@ -3,8 +3,6 @@ import testimony_1 from '../assets/images/testimonial1.jpg';
 import testimony_2 from '../assets/images/testimonial2.jpg';
 import testimony_3 from '../assets/images/testimonial3.jpg';
 
-import Swiper from 'swiper';
-
 const Testimonials = () => {
   return (
     <section className='testimonial section  p-1'>
@@ -17,7 +15,6 @@ const Testimonials = () => {
             className='testimonial__img box-shadow'
           />
         </div>
-
         <div className='swiper testimonial-swiper'>
           <div className='swiper-wrapper'>
             <div className='testimonial__card swiper-slide'>

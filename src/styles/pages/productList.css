@@ -35,3 +35,9 @@
   height: 26rem !important;
   object-fit: contain;
 }
+
+.like__btn__badge {
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
