@@ -1,4 +1,5 @@
 import { Nav, ScrollUp, ProductCard, Filters } from '../components/components';
+import { useDataContext } from '../context/DataContext';
 import { Header, Main, Footer } from '../layouts/layouts';
 import {
   ProductsPageWrapper,
@@ -7,6 +8,8 @@ import {
 } from '../sections/sections';
 
 const Productlist = () => {
+  const { products, loader } = useDataContext();
+
   return (
     <>
       <Header>
@@ -18,10 +21,11 @@ const Productlist = () => {
             <Filters />
           </FilterListWrapper>
           <ProductListWrapper>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {loader && <h1>Loading....</h1>}
+            {products &&
+              products.map((product) => {
+                return <ProductCard value={product} key={product._id} />;
+              })}
           </ProductListWrapper>
         </ProductsPageWrapper>
       </Main>

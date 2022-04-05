@@ -1,7 +1,5 @@
-import { Cart } from './Cart';
-import { Home } from './Home';
-import { Wishlist } from './Wishlist';
-import { Auth } from './Auth';
-import { Productlist } from './Productlist';
-
-export { Cart, Home, Wishlist, Auth, Productlist };
+export { Cart } from './Cart';
+export { Home } from './Home';
+export { Wishlist } from './Wishlist';
+export { Auth } from './Auth';
+export { Productlist } from './Productlist';

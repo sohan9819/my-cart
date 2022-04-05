@@ -6,17 +6,25 @@ import { makeServer } from './server';
 import './styles/index.css';
 
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeContextProvider } from './context/ThemeContext';
+import {
+  ThemeContextProvider,
+  DataContextProvider,
+  CartContextProvider,
+} from './context/context';
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeContextProvider>
+    <BrowserRouter>
+      <ThemeContextProvider>
+        <CartContextProvider>
+          <DataContextProvider>
+            <App />
+          </DataContextProvider>
+        </CartContextProvider>
+      </ThemeContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

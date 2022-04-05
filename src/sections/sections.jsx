@@ -1,23 +1,10 @@
-import { HomeIntro } from './HomeIntro';
-import { NewArrivals } from './NewArrivals';
-import { Testimonials } from './Testimonials';
-import { WishProducts } from './WishProducts';
-import { CartWrapper } from './CartWrapper';
-import { CartProducts } from './CartProducts';
-import { AuthForms } from './AuthForms';
-import { ProductsPageWrapper } from './ProductsPageWrapper';
-import { FilterListWrapper } from './FilterListWrapper';
-import { ProductListWrapper } from './ProductListWrapper';
-
-export {
-  HomeIntro,
-  NewArrivals,
-  Testimonials,
-  WishProducts,
-  CartWrapper,
-  CartProducts,
-  AuthForms,
-  ProductListWrapper,
-  FilterListWrapper,
-  ProductsPageWrapper,
-};
+export { HomeIntro } from './HomeIntro';
+export { NewArrivals } from './NewArrivals';
+export { Testimonials } from './Testimonials';
+export { WishProducts } from './WishProducts';
+export { CartWrapper } from './CartWrapper';
+export { CartProducts } from './CartProducts';
+export { AuthForms } from './AuthForms';
+export { ProductsPageWrapper } from './ProductsPageWrapper';
+export { FilterListWrapper } from './FilterListWrapper';
+export { ProductListWrapper } from './ProductListWrapper';
