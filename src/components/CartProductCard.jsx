@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useCartContext } from '../context/context';
+import { useCartContext, useWishContext } from '../context/context';
 
-const CartProductCard = (props) => {
-  const product = props.value;
+const CartProductCard = ({ product }) => {
   const {
     _id,
     title,
@@ -15,10 +14,8 @@ const CartProductCard = (props) => {
     quantity,
   } = product;
 
-  const [quan, setQuan] = useState(quantity);
-
-  const { removeFromCart, cartQuantityPlus, cartQuantityMinus, addToCart } =
-    useCartContext();
+  const { cartDispatch } = useCartContext();
+  const { wishDispatch, isItemInWishlist } = useWishContext();
 
   return (
     <article
@@ -38,11 +35,19 @@ const CartProductCard = (props) => {
           {((price * 100) / org_price).toFixed(2)}% off
         </h4>
 
+        <h5 className='h4 mt-1'>
+          {' '}
+          {/* <i>Category : </i> */}
+          {category} <br />
+          {/* <i>Rating : </i> */}
+          {rating.rate} <i class='bx bxs-star color-orange'></i> |{' '}
+          {rating.count}{' '}
+        </h5>
+
         <div className='quantity-input mt-2'>
           <button
             onClick={() => {
-              cartQuantityMinus(product);
-              setQuan((prev) => prev - 1);
+              cartDispatch({ type: 'Minus', payload: product });
             }}
             className='minus items-center justify-center relative'
           ></button>
@@ -55,8 +60,7 @@ const CartProductCard = (props) => {
           />
           <button
             onClick={() => {
-              cartQuantityPlus(product);
-              setQuan((prev) => prev + 1);
+              cartDispatch({ type: 'Plus', payload: product });
             }}
             className='plus'
           ></button>
@@ -65,20 +69,34 @@ const CartProductCard = (props) => {
       <div className='detail__card__btns flex justify-center items-center flex-col gap-1 p-1'>
         <button
           onClick={() => {
-            removeFromCart(product);
+            cartDispatch({
+              type: 'Remove from Cart',
+              payload: product,
+            });
           }}
           className='btn--red p-1 color-white bg-red w-full h4 gap-1 flex justify-center items-center'
         >
           Remove
           <i className='bx bx-trash h3'></i>
         </button>
-        <a
-          href='#'
+        <button
+          onClick={() => {
+            isItemInWishlist(product)
+              ? ''
+              : wishDispatch({
+                  type: 'Add to Wishlist',
+                  payload: product,
+                });
+            cartDispatch({
+              type: 'Remove from Cart',
+              payload: product,
+            });
+          }}
           className='btn w-full h4 gap-1 flex justify-center items-center'
         >
           Move to
           <i className='bx bx-heart h3'></i>
-        </a>
+        </button>
       </div>
     </article>
   );

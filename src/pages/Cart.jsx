@@ -28,7 +28,7 @@ const Cart = () => {
             )}
             {cartItems &&
               cartItems.map((item) => {
-                return <CartProductCard value={item} key={item._id} />;
+                return <CartProductCard product={item} key={item._id} />;
               })}
           </CartProducts>
           {/* <CartBill /> */}
