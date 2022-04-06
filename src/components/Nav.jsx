@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useThemeContext } from '../context/context';
 import { useEffect, useRef, useState } from 'react';
 
-import { useCartContext } from '../context/context';
+import { useCartContext, useWishContext } from '../context/context';
 
 const Nav = () => {
   const { theme, setTheme } = useThemeContext();
@@ -12,8 +12,10 @@ const Nav = () => {
   const themeIcon = useRef(null);
 
   const cartBadge = useRef(null);
-
   const { cartItems } = useCartContext();
+
+  const wishlistBadge = useRef(null);
+  const { wishItems } = useWishContext();
 
   const themeHandler = (val, icon) => {
     switch (val) {
@@ -44,6 +46,14 @@ const Nav = () => {
       cartBadge.current.style.display = '';
     }
   }, [cartItems]);
+
+  useEffect(() => {
+    if (wishItems.length == 0) {
+      wishlistBadge.current.style.display = 'none';
+    } else {
+      wishlistBadge.current.style.display = '';
+    }
+  }, [wishItems]);
 
   const onClickHandler = (evt) => {
     setTheme((prev) => !prev);
@@ -126,12 +136,22 @@ const Nav = () => {
         ></button>
         <div className='nav__shop h3' id='cart-heart'>
           <Link to='/wishlist' className='bx bx-heart badge__basic-wrapper'>
-            <span className='badge__basic-content'>0</span>
+            <span
+              style={{ display: 'none' }}
+              ref={wishlistBadge}
+              className='badge__basic-content'
+            >
+              {wishItems.length}
+            </span>
           </Link>
         </div>
         <div className='nav__shop h3' id='cart-shop'>
           <Link to='/cart' className='bx bx-shopping-bag badge__basic-wrapper'>
-            <span ref={cartBadge} className='badge__basic-content'>
+            <span
+              style={{ display: 'none' }}
+              ref={cartBadge}
+              className='badge__basic-content'
+            >
               {cartItems.length}
             </span>
           </Link>

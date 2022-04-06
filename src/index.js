@@ -10,6 +10,7 @@ import {
   ThemeContextProvider,
   DataContextProvider,
   CartContextProvider,
+  WishContextProvider,
 } from './context/context';
 // Call make Server
 makeServer();
@@ -18,11 +19,13 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeContextProvider>
-        <CartContextProvider>
-          <DataContextProvider>
-            <App />
-          </DataContextProvider>
-        </CartContextProvider>
+        <WishContextProvider>
+          <CartContextProvider>
+            <DataContextProvider>
+              <App />
+            </DataContextProvider>
+          </CartContextProvider>
+        </WishContextProvider>
       </ThemeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

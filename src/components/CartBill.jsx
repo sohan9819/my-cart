@@ -19,7 +19,7 @@ const CartBill = (props) => {
 
   const totalMoneySaved = totalOrgPrice - totalDiscountPrice;
 
-  const deliveryCharge = cartSize <= 2 ? 500 : 0;
+  const deliveryCharge = totalDiscountPrice <= 500 ? 100 : 0;
 
   const TotalPrice = totalDiscountPrice + deliveryCharge;
 
