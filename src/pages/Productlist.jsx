@@ -22,11 +22,20 @@ const Productlist = () => {
             <Filters />
           </FilterListWrapper>
           <ProductListWrapper>
-            {loader && <h1>Loading....</h1>}
+            {loader && <h1 className='h1 w-full text-center'>Loading....</h1>}
             {filteredProducts &&
               filteredProducts.map((product) => {
                 return <ProductCard value={product} key={product._id} />;
               })}
+
+            {filteredProducts.length === 0 ? (
+              <h1 className='h1 w-full text-center'>
+                No items !!! <br />
+                🙈🙉🙊
+              </h1>
+            ) : (
+              ''
+            )}
           </ProductListWrapper>
         </ProductsPageWrapper>
       </Main>

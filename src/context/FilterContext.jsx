@@ -35,9 +35,9 @@ const FilterContextProvider = ({ children }) => {
     (filterState, products) =>
       func.reduce((acc, filter) => filter(filterState, acc), products);
 
-  useEffect(() => {
-    console.log(filterState);
-  }, [filterState]);
+  // useEffect(() => {
+  //   console.log(filterState);
+  // }, [filterState]);
 
   useEffect(() => {
     products && filterDispatch({ type: 'data', payload: products });
@@ -59,8 +59,6 @@ const FilterContextProvider = ({ children }) => {
   //     sortBy
   //   )(filterState, filterState.products),
   // });
-
-  console.table(filteredProducts);
 
   return (
     <FilterContext.Provider

@@ -1,21 +1,10 @@
-import { Nav } from './Nav';
-import { ScrollUp } from './ScrollUp';
-import { WishProductCard } from './WishProductCard';
-import { CartProductCard } from './CartProductCard';
-import { CartBill } from './CartBill';
-import { SignInForm } from './SignInForm';
-import { SignUpForm } from './SignUpForm';
-import { ProductCard } from './ProductCard';
-import { Filters } from './Filters';
-
-export {
-  Nav,
-  ScrollUp,
-  WishProductCard,
-  CartProductCard,
-  CartBill,
-  SignInForm,
-  SignUpForm,
-  ProductCard,
-  Filters,
-};
+export { Nav } from './Nav';
+export { ScrollUp } from './ScrollUp';
+export { WishProductCard } from './WishProductCard';
+export { CartProductCard } from './CartProductCard';
+export { CartBill } from './CartBill';
+export { SignInForm } from './SignInForm';
+export { SignUpForm } from './SignUpForm';
+export { ProductCard } from './ProductCard';
+export { Filters } from './Filters';
+export { ProductDetailCard } from './ProductDetailCard';
