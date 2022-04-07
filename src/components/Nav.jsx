@@ -99,7 +99,7 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link to='/auth' className='btn bnt__link btn-me h4'>
+            <Link to='/auth' className='btn  btn-me h4'>
               SignIN
             </Link>
           </li>

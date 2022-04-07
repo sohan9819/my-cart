@@ -11,6 +11,7 @@ import {
   DataContextProvider,
   CartContextProvider,
   WishContextProvider,
+  FilterContextProvider,
 } from './context/context';
 // Call make Server
 makeServer();
@@ -22,7 +23,9 @@ ReactDOM.render(
         <WishContextProvider>
           <CartContextProvider>
             <DataContextProvider>
-              <App />
+              <FilterContextProvider>
+                <App />
+              </FilterContextProvider>
             </DataContextProvider>
           </CartContextProvider>
         </WishContextProvider>
