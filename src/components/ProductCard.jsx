@@ -70,6 +70,9 @@ const ProductCard = (props) => {
           {rating.rate} <i class='bx bxs-star color-orange'></i> |{' '}
           {rating.count}{' '}
         </h5>
+        <Link to={`/products/${_id}`} className='h4 ml-2 mt-1'>
+          <u className='color-blue-1 '>View Details</u> ℹ️
+        </Link>
       </div>
       <div className='card__links flex flex-col justify-center items-center p-1 gap-1 w-full'>
         {/* <button

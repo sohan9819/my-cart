@@ -12,8 +12,6 @@ const Filters = () => {
       <h2 className='h3 filter__title w-full'>Filters</h2>
       <h4
         onClick={() => {
-          console.log('Clear filter');
-
           filterCategory.current.reset();
           filterSort.current.reset();
           filterRating.current.reset();
@@ -39,7 +37,6 @@ const Filters = () => {
           id='priceRange'
           className='mt-1 mb-1'
           onChange={(evt) => {
-            console.log(evt.target.value);
             filterDispatch({ type: 'priceRange', payload: evt.target.value });
           }}
         />
@@ -54,7 +51,6 @@ const Filters = () => {
       <form
         ref={filterCategory}
         onChange={(evt) => {
-          console.log(evt.target.value);
           filterDispatch({ type: 'category', payload: evt.target.value });
         }}
         className='filter__category flex items-start justify-start gap-1 flex-col'
@@ -114,7 +110,6 @@ const Filters = () => {
       <form
         ref={filterRating}
         onChange={(evt) => {
-          console.log(evt.target.value);
           filterDispatch({ type: 'rating', payload: evt.target.value });
         }}
         className='filter__rating'
@@ -149,7 +144,6 @@ const Filters = () => {
       <form
         ref={filterSort}
         onChange={(evt) => {
-          console.log(evt.target.value);
           filterDispatch({ type: 'sortBy', payload: evt.target.value });
         }}
         className='filter__sort__by'
