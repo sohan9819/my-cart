@@ -1,4 +1,5 @@
 import { useWishContext, useCartContext } from '../context/context';
+import { notify } from '../utilities/toastNotify';
 
 const WishProductCard = (props) => {
   const product = props.value;
@@ -38,6 +39,7 @@ const WishProductCard = (props) => {
         <button
           onClick={() => {
             wishDispatch({ type: 'Remove from Wishlist', payload: product });
+            notify('Product removed from wishlist', 'warn');
           }}
           className='btn--red p-1 color-white bg-red w-full h4 gap-1 flex justify-center items-center'
         >
@@ -55,6 +57,9 @@ const WishProductCard = (props) => {
                   type: 'Add to Cart',
                   payload: product,
                 });
+            isItemInCart(product)
+              ? notify('Product removed from cart', 'warn')
+              : notify('Product added to cart', 'success');
           }}
           className='btn w-full h4 gap-1 flex justify-center items-center'
         >

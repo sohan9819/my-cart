@@ -4,8 +4,8 @@ export const notify = (msg, msgType) => {
   switch (msgType) {
     case 'success':
       return toast.success(<h4 className='h4 '>{msg}</h4>, {
-        position: 'top-right',
-        autoClose: 1000,
+        position: 'bottom-center',
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -14,8 +14,8 @@ export const notify = (msg, msgType) => {
       });
     case 'info':
       return toast.info(<h4 className='h4 '>{msg}</h4>, {
-        position: 'top-right',
-        autoClose: 1000,
+        position: 'bottom-center',
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -24,8 +24,8 @@ export const notify = (msg, msgType) => {
       });
     case 'error':
       return toast.error(<h4 className='h4 '>{msg}</h4>, {
-        position: 'top-right',
-        autoClose: 1000,
+        position: 'bottom-center',
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -34,8 +34,8 @@ export const notify = (msg, msgType) => {
       });
     case 'warn':
       return toast.warn(<h4 className='h4 '>{msg}</h4>, {
-        position: 'top-right',
-        autoClose: 1000,
+        position: 'bottom-center',
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,

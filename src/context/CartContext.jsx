@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 import { cartReducer } from '../reducers/reducers';
 const CartContext = createContext();
 
@@ -8,10 +8,6 @@ const CartContextProvider = ({ children }) => {
   const isItemInCart = (product) => {
     return cartItems.some((item) => item._id === product._id);
   };
-
-  useEffect(() => {
-    console.table(cartItems);
-  });
 
   return (
     <CartContext.Provider

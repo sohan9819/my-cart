@@ -25,8 +25,6 @@ export const ProductDetailCard = (props) => {
     quantity,
   } = product;
 
-  console.log(product);
-
   return Object.keys(product).length === 0 ? (
     <h1 className='h1 w-full text-center mt-8'>🙈🙉🙊</h1>
   ) : (
