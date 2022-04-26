@@ -1,4 +1,9 @@
+import { Link } from 'react-router-dom';
+import { useFilterContext } from '../context/context';
+
 const Footer = () => {
+  const { filterState, filterDispatch } = useFilterContext();
+
   return (
     <footer className='footer section container mx-auto'>
       {' '}
@@ -44,24 +49,51 @@ const Footer = () => {
 
           <ul className='footer__links flex flex-col gap-1 h4'>
             <li>
-              <a href='#' className='footer__link'>
-                Road bikes
-              </a>
+              <Link
+                onClick={() => {
+                  filterDispatch({ type: 'category', payload: 'mensClothing' });
+                }}
+                to='/products'
+                className='footer__link'
+              >
+                Men's Clothing
+              </Link>
             </li>
             <li>
-              <a href='#' className='footer__link'>
-                Mountain bikes
-              </a>
+              <Link
+                onClick={() => {
+                  filterDispatch({
+                    type: 'category',
+                    payload: 'womensClothing',
+                  });
+                }}
+                to='/products'
+                className='footer__link'
+              >
+                Women's Clothing
+              </Link>
             </li>
             <li>
-              <a href='#' className='footer__link'>
-                Electric
-              </a>
+              <Link
+                onClick={() => {
+                  filterDispatch({ type: 'category', payload: 'electronics' });
+                }}
+                to='/products'
+                className='footer__link'
+              >
+                Electronics
+              </Link>
             </li>
             <li>
-              <a href='#' className='footer__link'>
-                Accesories
-              </a>
+              <Link
+                onClick={() => {
+                  filterDispatch({ type: 'category', payload: 'jewelery' });
+                }}
+                to='/products'
+                className='footer__link'
+              >
+                Jewelery
+              </Link>
             </li>
           </ul>
         </div>

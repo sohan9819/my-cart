@@ -71,4 +71,11 @@ const sortBy = (filterState, products) => {
   }
 };
 
-export { priceRange, category, rating, sortBy };
+const search = (filterState, products) => {
+  const regex = new RegExp(filterState.search, 'gi');
+  return products.filter(
+    (product) => product.title.match(regex) || product.category.match(regex)
+  );
+};
+
+export { priceRange, category, rating, sortBy, search };

@@ -6,6 +6,7 @@ import {
   category,
   rating,
   sortBy,
+  search,
 } from '../utilities/filterFunctions';
 
 const FilterContext = createContext();
@@ -16,6 +17,7 @@ const initialFilter = {
   category: 'all',
   rating: 'all',
   sortBy: 'none',
+  search: '',
 };
 
 // Object.keys(o).reduce(function (previous, key) {
@@ -35,10 +37,6 @@ const FilterContextProvider = ({ children }) => {
     (filterState, products) =>
       func.reduce((acc, filter) => filter(filterState, acc), products);
 
-  // useEffect(() => {
-  //   console.log(filterState);
-  // }, [filterState]);
-
   useEffect(() => {
     products && filterDispatch({ type: 'data', payload: products });
   }, [products]);
@@ -47,18 +45,9 @@ const FilterContextProvider = ({ children }) => {
     priceRange,
     category,
     rating,
-    sortBy
+    sortBy,
+    search
   )(filterState, filterState.products);
-
-  // filterDispatch({
-  //   type: 'data',
-  //   payload: filterCurry(
-  //     priceRange,
-  //     category,
-  //     rating,
-  //     sortBy
-  //   )(filterState, filterState.products),
-  // });
 
   return (
     <FilterContext.Provider

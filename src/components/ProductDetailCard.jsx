@@ -1,6 +1,7 @@
 import { useCartContext, useWishContext } from '../context/context';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { notify } from '../utilities/toastNotify';
 
 export const ProductDetailCard = (props) => {
   const { cartDispatch, isItemInCart } = useCartContext();
@@ -24,8 +25,6 @@ export const ProductDetailCard = (props) => {
     quantity,
   } = product;
 
-  console.log(product);
-
   return Object.keys(product).length === 0 ? (
     <h1 className='h1 w-full text-center mt-8'>🙈🙉🙊</h1>
   ) : (
@@ -45,6 +44,10 @@ export const ProductDetailCard = (props) => {
                   type: 'Add to Wishlist',
                   payload: product,
                 });
+
+            isItemInWishlist(product)
+              ? notify('product removed from the wishlist', 'warn')
+              : notify('product added to the wishlist', 'success');
           }}
           className='bg color-red'
         >
@@ -92,6 +95,9 @@ export const ProductDetailCard = (props) => {
                   type: 'Add to Cart',
                   payload: product,
                 });
+            isItemInCart(product)
+              ? notify('product removed from the cart', 'warn')
+              : notify('product added to the cart', 'success');
           }}
           className='btn--red p-1 color-white bg-red w-full h4 gap-1 flex justify-center items-center'
         >

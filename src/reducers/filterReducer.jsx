@@ -7,6 +7,7 @@ export const filterReducer = (filterState, { type, payload }) => {
         category: 'all',
         rating: 'all',
         sortBy: 'none',
+        search: '',
       };
 
     case 'data':
@@ -23,6 +24,9 @@ export const filterReducer = (filterState, { type, payload }) => {
 
     case 'rating':
       return { ...filterState, rating: Number(payload) };
+
+    case 'search':
+      return { ...filterState, search: payload };
 
     default:
       break;

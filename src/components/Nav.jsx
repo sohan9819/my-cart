@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { useThemeContext } from '../context/context';
+import { Link, useNavigate } from 'react-router-dom';
+import { useThemeContext, useFilterContext } from '../context/context';
 import { useEffect, useRef, useState } from 'react';
 
 import { useCartContext, useWishContext } from '../context/context';
@@ -16,6 +16,10 @@ const Nav = () => {
 
   const wishlistBadge = useRef(null);
   const { wishItems } = useWishContext();
+
+  const { filterState, filterDispatch } = useFilterContext();
+
+  let navigate = useNavigate();
 
   const themeHandler = (val, icon) => {
     switch (val) {
@@ -94,13 +98,18 @@ const Nav = () => {
                 id='search__box'
                 placeholder='Search'
                 className='ml-1 py-1 rounded-s nav__search-box'
+                value={filterState.search}
+                onChange={(evt) => {
+                  navigate('/products');
+                  filterDispatch({ type: 'search', payload: evt.target.value });
+                }}
               />
             </i>
           </li>
 
           <li>
             <Link to='/auth' className='btn  btn-me h4'>
-              SignIN
+              Sign In
             </Link>
           </li>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCartContext, useWishContext } from '../context/context';
+import { notify } from '../utilities/toastNotify';
 
 const CartProductCard = ({ product }) => {
   const {
@@ -73,6 +74,7 @@ const CartProductCard = ({ product }) => {
               type: 'Remove from Cart',
               payload: product,
             });
+            notify('Product removed from cart', 'warn');
           }}
           className='btn--red p-1 color-white bg-red w-full h4 gap-1 flex justify-center items-center'
         >
@@ -91,6 +93,7 @@ const CartProductCard = ({ product }) => {
               type: 'Remove from Cart',
               payload: product,
             });
+            notify('Product moved to wishlist', 'success');
           }}
           className='btn w-full h4 gap-1 flex justify-center items-center'
         >
