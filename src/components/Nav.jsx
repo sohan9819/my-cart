@@ -109,7 +109,7 @@ const Nav = () => {
 
           <li>
             <Link to='/auth' className='btn  btn-me h4'>
-              SignIN
+              Sign In
             </Link>
           </li>
 

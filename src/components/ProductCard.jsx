@@ -113,7 +113,7 @@ const ProductCard = (props) => {
             to='/cart'
             className='btn  w-full h4 gap-1 flex justify-center items-center'
           >
-            By Now
+            Buy Now
           </Link>
         </div>
       </article>
