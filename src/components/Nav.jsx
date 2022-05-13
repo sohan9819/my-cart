@@ -1,8 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useThemeContext, useFilterContext } from '../context/context';
 import { useEffect, useRef, useState } from 'react';
 
-import { useCartContext, useWishContext } from '../context/context';
+import {
+  useCartContext,
+  useWishContext,
+  useAuthContext,
+} from '../context/context';
 
 const Nav = () => {
   const { theme, setTheme } = useThemeContext();
@@ -19,7 +23,7 @@ const Nav = () => {
 
   const { filterState, filterDispatch } = useFilterContext();
 
-  let navigate = useNavigate();
+  const { auth } = useAuthContext();
 
   const themeHandler = (val, icon) => {
     switch (val) {
@@ -62,7 +66,6 @@ const Nav = () => {
   const onClickHandler = (evt) => {
     setTheme((prev) => !prev);
     themeHandler(theme, evt.target);
-    // console.log(theme);
   };
 
   const navHandler = (action) => {
@@ -86,7 +89,7 @@ const Nav = () => {
 
       <div className={`nav__menu ${navState ? 'show-menu' : ''}`} id='nav-menu'>
         {/* <div className={navToggle} id='nav-menu'> */}
-        <ul className='nav__list'>
+        <ul className='nav__list gap-4'>
           <li>
             <i
               className='bx bx-search-alt-2 bg-grey w-full col-2-0f-4 m-auto my-1 rounded-s nav__search px-1 h4 flex flex-row flex-nowrap items-center justify-center'
@@ -108,9 +111,15 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link to='/auth' className='btn  btn-me h4'>
-              Sign In
-            </Link>
+            {auth.isAuth ? (
+              <Link to='/profile' className='btn h4 rounded-m'>
+                {auth.user.username}
+              </Link>
+            ) : (
+              <Link to='/auth' className='btn  btn-me h4'>
+                LogIn
+              </Link>
+            )}
           </li>
 
           <li>
