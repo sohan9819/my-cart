@@ -25,6 +25,9 @@ const cartReducer = (cartItems, { type, payload }) => {
               : item
           );
 
+    case 'data':
+      return [...payload];
+
     default:
       break;
   }

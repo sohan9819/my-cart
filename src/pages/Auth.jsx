@@ -1,9 +1,4 @@
-import {
-  Nav,
-  ScrollUp,
-  SignInForm,
-  SignUpForm,
-} from '../components/components';
+import { Nav, ScrollUp, LogInForm, SignUpForm } from '../components/components';
 import { Header, Main, Footer } from '../layouts/layouts';
 import { AuthForms } from '../sections/sections';
 
@@ -15,7 +10,7 @@ const Auth = () => {
       </Header>
       <Main>
         <AuthForms>
-          <SignInForm />
+          <LogInForm />
           <SignUpForm />
         </AuthForms>
       </Main>

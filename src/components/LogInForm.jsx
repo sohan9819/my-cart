@@ -1,6 +1,27 @@
-const SignInForm = () => {
+import { useState } from 'react';
+import { useAuthContext } from '../context/context';
+import { login } from '../utilities/login';
+
+const LogInForm = () => {
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
+  const testLogin = {
+    email: 'adarshbalika@gmail.com',
+    password: 'adarshbalika',
+  };
+
+  const { auth, setAuth } = useAuthContext();
+
+  const formHandler = (evt) => {
+    evt.preventDefault();
+    login(user, setAuth);
+  };
+
   return (
-    <form action='' className='login__form grid p-1'>
+    <form onSubmit={formHandler} className='login__form grid p-1'>
       <div className='input__text-group mt-4'>
         <input
           type='email'
@@ -8,6 +29,9 @@ const SignInForm = () => {
           placeholder='Email address'
           id='email'
           required
+          onChange={(evt) => {
+            setUser((prev) => ({ ...prev, email: evt.target.value }));
+          }}
         />
         <label for='email' className='input__text-label color-alpha'>
           Email
@@ -17,30 +41,30 @@ const SignInForm = () => {
         </div>
       </div>
 
-      <div className='input__text-group'>
+      <div className='input__text-group relative'>
         <input
           type='password'
           className='input__text-input'
           placeholder='Password'
           id='password'
           required
-          pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
+          onChange={(evt) => {
+            setUser((prev) => ({ ...prev, password: evt.target.value }));
+          }}
         />
+
         <label for='password' className='input__text-label'>
           Password
         </label>
         <div className='h5 input__error color-red'>
-          <i>
-            Your password must be at least 6 characters as well as contain at
-            least one uppercase, one lowercase, and one number.
-          </i>
+          <i>Invalid Password</i>
         </div>
       </div>
 
       <div className='login__form__options w-full flex justify-between items-center h4 mb-2'>
         <label for='remember'>
           <input type='checkbox' name='remember' id='remember' required />
-          Remeber me
+          Remember me
         </label>
 
         <a
@@ -62,4 +86,4 @@ const SignInForm = () => {
   );
 };
 
-export { SignInForm };
+export { LogInForm };

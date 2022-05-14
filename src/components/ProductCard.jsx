@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useCartContext, useWishContext } from '../context/context';
 import { notify } from '../utilities/toastNotify';
+import { useAuthContext } from '../context/context';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = (props) => {
   const product = props.value;
@@ -10,6 +12,9 @@ const ProductCard = (props) => {
   const { wishDispatch, isItemInWishlist } = useWishContext();
 
   const { cartDispatch, isItemInCart } = useCartContext();
+
+  const { auth } = useAuthContext();
+  const { navigate } = useNavigate();
 
   return (
     <>
@@ -83,38 +88,46 @@ const ProductCard = (props) => {
         <div className='card__links flex flex-col justify-center items-center p-1 gap-1 w-full'>
           <button
             onClick={() => {
-              isItemInCart(product)
-                ? cartDispatch({
-                    type: 'Remove from Cart',
-                    payload: product,
-                  })
-                : cartDispatch({
-                    type: 'Add to Cart',
-                    payload: product,
-                  });
-              isItemInCart(product)
-                ? notify('product removed from the cart', 'warn')
-                : notify('product added to the cart', 'success');
+              if (auth.isAuth) {
+                isItemInCart(product)
+                  ? cartDispatch({
+                      type: 'Remove from Cart',
+                      payload: product,
+                    })
+                  : cartDispatch({
+                      type: 'Add to Cart',
+                      payload: product,
+                    });
+                isItemInCart(product)
+                  ? notify('product removed from the cart', 'warn')
+                  : notify('product added to the cart', 'success');
+              } else {
+                notify('PLease login ', 'error');
+              }
             }}
             className='btn p-1 color-white  w-full h4 gap-1 flex justify-center items-center'
           >
             {isItemInCart(product) ? 'Remove from Cart' : 'Add to Cart'}
             <i className='bx bx-cart h3'></i>
           </button>
-          <Link
+          <button
             onClick={() => {
-              isItemInCart(product)
-                ? ''
-                : cartDispatch({
-                    type: 'Add to Cart',
-                    payload: product,
-                  });
+              if (auth.isAuth) {
+                isItemInCart(product)
+                  ? ''
+                  : cartDispatch({
+                      type: 'Add to Cart',
+                      payload: product,
+                    });
+                navigate('/cart');
+              } else {
+                notify('PLease login ', 'error ');
+              }
             }}
-            to='/cart'
             className='btn  w-full h4 gap-1 flex justify-center items-center'
           >
             Buy Now
-          </Link>
+          </button>
         </div>
       </article>
     </>
