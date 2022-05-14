@@ -64,7 +64,7 @@ const LogInForm = () => {
       <div className='login__form__options w-full flex justify-between items-center h4 mb-2'>
         <label for='remember'>
           <input type='checkbox' name='remember' id='remember' required />
-          Remeber me
+          Remember me
         </label>
 
         <a
