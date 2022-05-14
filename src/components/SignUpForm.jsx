@@ -80,23 +80,6 @@ const SignUpForm = () => {
         </div>
       </div>
 
-      {/* <div className='input__text-group'>
-        <input
-          type='confirmPassword'
-          className='input__text-input box-shadow'
-          placeholder='Confirm Password'
-          id='confirmPassword'
-          required
-          pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
-        />
-        <label htmlFor='confirmPassword' className='input__text-label'>
-          Confirm Password
-        </label>
-        <div className='h5 input__error color-red'>
-          <i>Your password must match the above input</i>
-        </div>
-      </div> */}
-
       <div className='signup__form__options h4 mb-2'>
         <label htmlFor='terms'>
           <input type='checkbox' id='terms' name='terms' required />I accept all
