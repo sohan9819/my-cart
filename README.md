@@ -8,7 +8,8 @@
 
 ### Deployed link : [My Cart 🛒](https://my-cart-ecom.netlify.app/)
 
-## Entire UI of this app is made using [Alpha UI](https://alpha-dark-ui.netlify.app/)
+<!-- ## Entire UI of this app is made using [Alpha UI](https://alpha-dark-ui.netlify.app/) -->
+latest feture preview link : https://deploy-preview-7--my-cart-ecom.netlify.app
 
 ## Project Features
 
