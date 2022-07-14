@@ -2,7 +2,7 @@
 
 ### React Ecomerce Project
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cd2a7675-9377-4c08-91b7-f5caed9ddf82/deploy-status)](https://app.netlify.com/sites/my-cart-ecom/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/17a78b8a-88f0-4718-8fa6-ad8fd1de86b8/deploy-status)](https://app.netlify.com/sites/my-cart-ecom/deploys)
 
 ![image](https://user-images.githubusercontent.com/64985447/168379324-5e5764a8-5472-4c12-9d5a-56fe7d1c39a1.png)
 
