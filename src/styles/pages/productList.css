@@ -7,6 +7,8 @@
 .filters__wrapper {
   width: 100%;
   grid-area: filters;
+  position: sticky;
+  top: 0rem;
 }
 
 .products__list {
