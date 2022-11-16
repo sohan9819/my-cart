@@ -113,7 +113,7 @@ const Nav = () => {
           <li>
             {auth.isAuth ? (
               <Link to='/profile' className='btn h4 rounded-m'>
-                {auth.user.username}
+                {auth.user?.username}
               </Link>
             ) : (
               <Link to='/auth' className='btn  btn-me h4'>
