@@ -26,4 +26,4 @@ yarn-error.log*
 
 
 #test pakages 
-./src/pages/ProductDetail.jsx
+src/utilities/cartFunctions.js

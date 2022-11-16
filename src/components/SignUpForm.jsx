@@ -1,15 +1,55 @@
+import axios from 'axios';
+import { useRef, useState } from 'react';
+import { useAuthContext } from '../context/context';
+import { signup } from '../utilities/signup';
+
 const SignUpForm = () => {
+  const [user, setUser] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const { setAuth } = useAuthContext();
+
+  const formHandler = (evt) => {
+    evt.preventDefault();
+    signup(user, setAuth);
+  };
+
   return (
-    <form action='' className='signup__form grid p-1'>
+    <form onSubmit={formHandler} className='signup__form grid p-1'>
       <div className='input__text-group mt-4'>
+        <input
+          type='username'
+          className='input__text-input'
+          placeholder='Username'
+          id='username'
+          required
+          onChange={(evt) => {
+            setUser((prev) => ({ ...prev, username: evt.target.value }));
+          }}
+        />
+        <label htmlFor='email' className='input__text-label'>
+          Username
+        </label>
+        <div className='h5 input__error color-red'>
+          <i>Username required</i>
+        </div>
+      </div>
+
+      <div className='input__text-group '>
         <input
           type='email'
           className='input__text-input'
           placeholder='Email address'
           id='email'
           required
+          onChange={(evt) => {
+            setUser((prev) => ({ ...prev, email: evt.target.value }));
+          }}
         />
-        <label for='email' className='input__text-label'>
+        <label htmlFor='email' className='input__text-label'>
           Email
         </label>
         <div className='h5 input__error color-red'>
@@ -17,7 +57,7 @@ const SignUpForm = () => {
         </div>
       </div>
 
-      <div className='input__text-group'>
+      <div className='input__text-group '>
         <input
           type='password'
           className='input__text-input box-shadow'
@@ -25,8 +65,11 @@ const SignUpForm = () => {
           id='password'
           required
           pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
+          onChange={(evt) => {
+            setUser((prev) => ({ ...prev, password: evt.target.value }));
+          }}
         />
-        <label for='password' className='input__text-label'>
+        <label htmlFor='password' className='input__text-label'>
           Password
         </label>
         <div className='h5 input__error color-red'>
@@ -38,9 +81,9 @@ const SignUpForm = () => {
       </div>
 
       <div className='signup__form__options h4 mb-2'>
-        <label for='remember'>
-          <input type='checkbox' name='remember' id='remember' required />I
-          accept all tems and conditions
+        <label htmlFor='terms'>
+          <input type='checkbox' id='terms' name='terms' required />I accept all
+          tems and conditions
         </label>
 
         <a href='#' className='mr-2'>

@@ -10,7 +10,7 @@ const AuthForms = ({ children }) => {
           checked
         />
         <label for='login' className='login__tab h3 text-center pb-1'>
-          Login
+          LogIn
         </label>
 
         <input
